@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Drawing;
 using Cosmos.System.FileSystem.VFS;
-using Cosmos.System.Graphics;
 using LineOS.CLI;
 using LineOS.FS;
 using Sys = Cosmos.System;

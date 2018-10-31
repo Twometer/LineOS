@@ -16,7 +16,8 @@ namespace LineOS.CLI
             new CmdKbdLayout(),
             new CmdHelp(),
             new CmdGui(),
-            new CmdReadFile()
+            new CmdReadFile(),
+            new CmdClearScreen()
         };
 
         public void HandleCommand(string command)
