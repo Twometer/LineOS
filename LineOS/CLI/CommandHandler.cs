@@ -5,24 +5,25 @@ namespace LineOS.CLI
 {
     public class CommandHandler
     {
-        private static readonly string[] EMPTY_ARRAY = new string[0];
+        private static readonly string[] EmptyArray = new string[0];
 
-        public ICommand[] Commands { get; } = new ICommand[]
-        {
+        public ICommand[] Commands { get; } = {
             new CmdShutdown(),
             new CmdReboot(),
             new CmdDir(),
             new CmdChgDir(),
             new CmdVolumeList(),
             new CmdKbdLayout(),
-            new CmdHelp()
+            new CmdHelp(),
+            new CmdGui(),
+            new CmdReadFile()
         };
 
         public void HandleCommand(string command)
         {
             var arr = command.Trim().Split(' ');
             var name = arr[0];
-            var args = arr.Length > 1 ? new string[arr.Length - 1] : EMPTY_ARRAY;
+            var args = arr.Length > 1 ? new string[arr.Length - 1] : EmptyArray;
             if (args.Length > 0)
                 Array.Copy(arr, 1, args, 0, args.Length);
             foreach (var cmd in Commands)

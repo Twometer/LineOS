@@ -79,6 +79,7 @@
         <HyperV_StackCorruptionDetectionEnabled>True</HyperV_StackCorruptionDetectionEnabled>
         <ISO_Name>ISO User 001</ISO_Name>
         <HyperV_VisualStudioDebugPort>Pipe: CosmosSerial</HyperV_VisualStudioDebugPort>
+        <VMware_Name>ISO User 001</VMware_Name>
     </PropertyGroup>
 
     <PropertyGroup>

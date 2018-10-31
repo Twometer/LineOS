@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Cosmos.System.FileSystem;
 using Cosmos.System.FileSystem.Listing;
 using LineOS.NTFS.IO;
+using LineOS.NTFS.Model.Attributes;
 
 namespace LineOS.NTFS.Cosmos
 {
@@ -26,7 +28,18 @@ namespace LineOS.NTFS.Cosmos
 
         public override Stream GetFileStream()
         {
-            return null;
+            var frec = NtfsEntry.MFTRecord;
+            foreach (var att in frec.Attributes)
+            {
+                switch (att)
+                {
+                    case AttributeGeneric gen:
+                        return new MemoryStream(gen.Data);
+                    case AttributeData data:
+                        return new MemoryStream(data.DataBytes);
+                }
+            }
+            throw new Exception("ntfs: data attribute not found");
         }
 
         public override long GetUsedSpace()
