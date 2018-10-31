@@ -10,9 +10,9 @@ namespace LineOS.NTFS.Cosmos
 {
     public class NtfsFileSystem : FileSystem
     {
-        private Partition device;
-        private string rootPath;
-        private long size;
+        private readonly Partition device;
+        private readonly string rootPath;
+        private readonly long size;
 
         private Ntfs ntfs;
 
